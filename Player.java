@@ -1,6 +1,8 @@
+package Deception;
 import java.util.Random; 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
+import java.util.ArrayList; 
 
 public class Player {
 
@@ -10,6 +12,8 @@ public class Player {
     private int CC;             // currency amount
     private boolean life_status; //determine if the player is still in the game
     private boolean game_master; //determine if the player is the game master
+    
+    private ArrayList<Integer>player_cards;
 
     //private ArrayList<MercTemp> deck; 
 
@@ -106,6 +110,13 @@ public class Player {
             life_status = false; 
                 //terminate a player that manages to switch to game_master illegally
     }
+
+
+
+    
+
+
+
 
 
 
