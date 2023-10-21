@@ -4,40 +4,42 @@ import java.util.ArrayList;
 
 public class Deception {
   
-    public static void deceptionCallOut(boolean playerA_claim, boolean playerB_truth)
+    public static void deceptionCallOut(boolean playerA_claim, boolean playerB_truth, int current_id)
     {
-        if(!playerA_claim) return; //playerA falls back on their initial claim
-        
-        //this will account for all card types
-        
+        if(!playerA_claim) return;
+
         if(playerA_claim && !playerB_truth) 
-            doSomething(); //player B has their card eliminated
+            playerB.; //player B has their card eliminated
+                        //choice of which card to elim
+
+            
+            
             else
             {
                   doSomething(); 
                 /*
                  * player A has a card eliminated 
-                 * player B has a card swapped 
+                 * 
                  */ 
+
+                
             }
     }
 
   
 
     //this validates if a card is in a player's deck
-    public static boolean validation(ArrayList<Integer>mercs, int merc_id)
+    public static boolean validation(ArrayList<Integer>playerDeck, int merc_id)
     {   
-        for(int i = 0; i < mercs.size(); i++)
+        for(int i = 0; i < playerDeck.size(); i++)
         {
-            
+            if(playerDeck.get(i) == merc_id){
+                return true;
+            }
         }
-        
-
-
-      
-
-        return true; 
+        return false; 
     }
+
 
 
     private static void doSomething()

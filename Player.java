@@ -1,8 +1,10 @@
 package Deception;
 import java.util.Random; 
 //import java.util.ArrayList;
-
-import java.util.ArrayList; 
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap; 
 
 public class Player {
 
@@ -13,7 +15,11 @@ public class Player {
     private boolean life_status; //determine if the player is still in the game
     private boolean game_master; //determine if the player is the game master
     
-    private ArrayList<Integer>player_cards;
+    public ArrayList<Integer>player_cards;
+<<<<<<< HEAD
+    private static HashMap<Integer, Player> playersMap = new HashMap<>();
+=======
+>>>>>>> main
 
     //private ArrayList<MercTemp> deck; 
 
@@ -26,7 +32,7 @@ public class Player {
      for(int i = 0; i < playerCount; i++)
      {  
         Player player = new Player(i+1); 
-        //push the player onto a list.
+        //push the player onto a list.eyer 
      }
      
      Then from the list:
@@ -40,6 +46,14 @@ public class Player {
         this.player_id = player_id; 
         life_status = true; 
         CC = 0; 
+
+        playersMap.put(player_id, this); 
+
+        //give the player the last two cards from the DeckTemp 
+        DeckTemp deck = new DeckTemp();
+        deck.draw(player_cards);
+            
+
     }
 
     //bot constructor
@@ -52,8 +66,10 @@ public class Player {
 
         botCount++; 
     }
-    
 
+    public static Player getPlayerbyId(int id){
+        return playersMap.get(id);
+    }
 
     public String accessPlayerID()
     {
@@ -111,15 +127,6 @@ public class Player {
                 //terminate a player that manages to switch to game_master illegally
     }
 
-
-
-    
-
-
-
-
-
-
     //choosing a random name for the bot
 
     private static String randomNameAssign()
@@ -133,6 +140,76 @@ public class Player {
         
     return nameArray[value];
     }
+
+    // public Player getPlayer(int i){
+
+    // }
+
+    public void action(Player player){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please choose an action: Econ | Aid | Kill | Merc ");
+        String chosenAction = scanner.next();
+        scanner.close();
+        switch(chosenAction){
+            case "Econ":
+            gameLogic.economy(player);
+            break;
+            
+            case "Aid":
+            gameLogic.foreignAid(player);
+            break;
+
+            case "Kill":
+            Scanner killScan = new Scanner(System.in);
+            System.out.print("Please choose a player to attack: ");
+            int id = killScan.nextInt();
+            killScan.close();
+            Scanner cardScan = new Scanner(System.in);
+            System.out.print("Please choose a card to attack: ");
+            int cardId = cardScan.nextInt();
+            cardScan.close();
+            gameLogic.kill(player, getPlayerbyId(id), cardId);
+            break;
+
+            case "Merc":
+            Scanner mercScan = new Scanner(System.in);
+            System.out.print("Please choose a merc: Duke | Cap | Amb | Sin | Con ");
+            String chosenMerc = mercScan.next();
+            mercScan.close();
+
+            switch(chosenMerc){
+                case "Duke":
+                Scanner dukeScan = new Scanner(System.in);
+                System.out.print("Please choose an action: Treasure | Block Aid ");
+                String dukeAction = dukeScan.next();
+                dukeScan.close();
+                if(dukeAction == "Treasure"){
+                    Duke.treasuryYield(player);
+                }
+                else{
+                cardScan = new Scanner(System.in);
+                System.out.print("Please choose a player to attack: ");
+                id = cardScan.nextInt();
+                cardScan.close();
+                Duke.blockAid(player, getPlayerbyId(id));
+                }
+                break;
+
+                case "Cap":
+
+
+
+            }
+
+
+
+        }
+
+        
+
+    }
+
+
 }
 
 
