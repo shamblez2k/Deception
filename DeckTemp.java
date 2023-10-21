@@ -4,26 +4,38 @@ import java.util.Arrays;
 
 public class DeckTemp {
     
-    private ArrayList<Integer>initial = new ArrayList<>(Arrays.asList(1,1,1,2,2,2,3,3,3,4,4,4,5,5,5));
+    public ArrayList<Integer>initial = new ArrayList<>(Arrays.asList(1,1,1,2,2,2,3,3,3,4,4,4,5,5,5));
 
-    private Merc Duke;
-    private Merc Captain;
-    private Merc Ambassador;
-    private Merc Assassin;
-    private Merc Contessa; 
+    // private Merc Duke;
+    // private Merc Captain;
+    // private Merc Ambassador;
+    // private Merc Assassin;
+    // private Merc Contessa; 
     
-    public ArrayList<Merc> mercList = new ArrayList<>(); 
+    // public ArrayList<Merc> mercList = new ArrayList<>(); 
    
-    public DeckTemp()
+    // public DeckTemp()
+    // {
+    //     mercList.add(Duke);
+    //     mercList.add(Captain);
+    //     mercList.add(Ambassador);
+    //     mercList.add(Assassin);
+    //     mercList.add(Contessa);
+    // }
+
+
+
+    //we would shuffle the list 
+
+    //we would like to access the values within the list
+    public void draw(ArrayList<Integer>playerDeck)
     {
-        mercList.add(Duke);
-        mercList.add(Captain);
-        mercList.add(Ambassador);
-        mercList.add(Assassin);
-        mercList.add(Contessa);
+        playerDeck.add(initial.get(initial.size()-1));
+        playerDeck.add(initial.get(initial.size()-2)); 
+
+        initial.remove(initial.size()-1);
+        initial.remove(initial.size()-2);
     }
-
-
     
     //represent the mercs as nodes 
     //that work under a larger class? 
