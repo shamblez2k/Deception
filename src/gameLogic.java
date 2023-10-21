@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.ArrayList;
-
 public class gameLogic{
     //Assume there is a Desk class which is made of an ArrayList of mercenaries, ArrayList<Mercenary> deck
     //Assume the players have already been given two cards each, there is between 3-11 cards left in the deck depending on how many players there are
@@ -33,6 +30,12 @@ public class gameLogic{
         shuffle(); //Shuffles the deck 
     }
 
- * 
- * 
- */
+    public static void blockAction(Player blocker, Player blocked){
+
+    }
+
+
+
+
+
+}
