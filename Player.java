@@ -16,7 +16,10 @@ public class Player {
     private boolean game_master; //determine if the player is the game master
     
     public ArrayList<Integer>player_cards;
+<<<<<<< HEAD
     private static HashMap<Integer, Player> playersMap = new HashMap<>();
+=======
+>>>>>>> main
 
     //private ArrayList<MercTemp> deck; 
 
