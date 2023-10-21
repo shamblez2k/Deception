@@ -13,7 +13,7 @@ public class Player {
     private boolean life_status; //determine if the player is still in the game
     private boolean game_master; //determine if the player is the game master
     
-    private ArrayList<Integer>player_cards;
+    public ArrayList<Integer>player_cards;
 
     //private ArrayList<MercTemp> deck; 
 
