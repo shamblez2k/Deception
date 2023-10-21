@@ -56,6 +56,18 @@ public class Player {
 
     }
 
+
+    public String getName()
+    {
+        return player_name;
+    }
+
+    public void setName(String player_name)
+    {
+        this.player_name = player_name;
+    }
+
+
     //bot constructor
     public Player(int player_id, String player_name)
     {

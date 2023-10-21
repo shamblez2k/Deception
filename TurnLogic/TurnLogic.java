@@ -1,3 +1,6 @@
+public class TurnLogic {
+
+/*
 import java.util.*;
 
 public class gameSession{
@@ -10,8 +13,9 @@ public class gameSession{
     playerCount = scanner.nextInt();
     scanner.close();
 
-    List<Player> players = new ArrayList<>();    
 
+    List<Player> players = new ArrayList<>();    
+   
     for(int i = 1; i < playerCount; i++){
         Player player = new Player(i);
         players.add(player);
@@ -19,18 +23,26 @@ public class gameSession{
 
     while(true)
     {
-        for(int i = 0; i < players.size(); i++)
-        {
-            Player current = players.get(i);
-            current.action(current); 
-        }
+        //the players turn is based on the subsequent value in the array. 
 
-        if(players.size() == 1) break; 
+        
+
+
     }
-        Player winner = players.get(0); 
 
-        System.out.println("The winner of the game: "+winner.getName());
 
  }
+*/
 
+    
 }
+
+
+/*
+ *  check the current status: 
+ *  of the game: 
+ *      check if there is still more than one player alive 
+ *      playing the game. 
+ * 
+ * 
+ */
