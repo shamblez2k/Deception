@@ -52,19 +52,21 @@ public class Deception {
 }
 
 /*
-    the player choices: 
-        
-        deceptionCallOut()
-        
-        A challenges B's card 
-
-        the position of a card is checked
-        to validate that it exists. 
-
-
-
-
-
-  
-  
+ * steps for the git process:
+ *  
+ * create the git branch 
+ * 
+ * git branch NameBranch
+ * git checkout NameBranch  
+ * 
+ * git pull origin main 
+ *      -> pulls the content from the remote repository
+ *         and allows you to access the remote content
+ * 
+ * git add . 
+ *  this adds everything to push
+ * 
+ * git push origin NameBranch
+ * 
+ * 
  */

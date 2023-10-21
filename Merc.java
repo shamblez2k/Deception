@@ -1,3 +1,4 @@
+package Deception;
 public class Merc {
     
     class Duke
