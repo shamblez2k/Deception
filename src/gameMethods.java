@@ -30,7 +30,21 @@ public class gameMethods {
         }
     }
 
-    
+    public static int current_merc_ID(ArrayList<Integer>player_cards, )
+    {   
+        //simply return the ID of the merc being used:
+
+        /*
+         *  when a merc is used within the game session
+         * 
+         * 
+         * 
+         */
+
+
+    }
+
+
 
     
 }
