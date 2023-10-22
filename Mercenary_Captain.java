@@ -1,5 +1,7 @@
-public class Captain
+public class Mercenary_Captain
     {
+        final private int ID = 3; 
+
         public boolean claim;
         public boolean truth;
         public static void pillage(Player pillager, Player victim){
@@ -12,4 +14,11 @@ public class Captain
             }
   
         }
+
+        public int getID()
+        {
+            return ID;
+        }
+
+
     }

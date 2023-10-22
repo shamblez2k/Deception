@@ -1,121 +1,78 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
+
+//possible tension scenarios/reactions
 public class Interactions {
     
-
+    //a player removes a card of their choosing
     public static void eliminateChoice(Player victim, int choice)
     {
          victim.player_cards.remove(choice); 
     }
 
+    //a player reacts to another player's attack
+    public static void tensionInitiate(boolean player_A_initiate, Player player_A, Player player_B, int current_merc_player_B)
+    {
+        if(player_A_initiate) Interactions.tensionEvent(player_A, player_B, current_merc_player_B); 
+        else return;  
+    }
+
+    //covers the logic behind the reaction. 
+    private static void tensionEvent(Player player_A, Player player_B, int current_merc_player_B)
+    {
+    //merc ID's are acquired during its action phase.
+
+        //prompt the user which action to take.
+
+        System.out.println("You have raised suspicion on "+player_B.getName()+"'s card.\n"+
+        "How will you proceed?\n (1) Confirm\t (2) Fall back\t");
+    
+        Scanner user_input = new Scanner(System.in); 
+        String transfer_user_input = user_input.nextLine();
+
+        boolean user_claim = false; 
+
+
+        //if the user "Confirms" then take the user into the deceptionCallOut phase ->
+        if(transfer_user_input == "1")
+        {
+            user_claim = true; 
+        }
+            boolean validity = Deception.validation(player_B.player_cards,current_merc_player_B);
+
+        Deception.deceptionCallOut(user_claim, validity, player_B,current_merc_player_B, player_A);
+    }   
+
+  
     
 
 
 
 
 
-
-    //directContact
-    public static void oneOnOneInitiate(boolean player_A_initiate, Player player_A, Player player_B)
-    {
-       /*
-        *   player A attacks player B 
-            
-
-            player B is able to counter the attack. 
-
-            
-
-
-        */
-    }
-
-    public static void counterReact(boolean permit, Player player_A, Player player_B)
-    {
-        if(!permit) //if the defending player does not permit the attack, then they react with a counter.
-            Interactions.counter();
-    }   
-
-    private void counter()
-    {
-
     }
 
 
-    //bystander 
-    public static void tensionInitiate(boolean player_A_initiate, Player player_A, Player player_B)
-    {
-        if(player_A_initiate) Interactions.tensionEvent(player_A, player_B); 
+      /*
+
+        'The following has been pasted as a reference'
+
+
+        "The validity function": validating if the mercenary is really in the player's deck
+
+
+     * //this validates if a card is in a player's deck
+    public static boolean validation(ArrayList<Integer>playerDeck, int merc_id)
+    {   
+        for(int i = 0; i < playerDeck.size(); i++)
+        {
+            if(playerDeck.get(i) == merc_id){
+                return true;
+            }
+        }
+        return false; 
     }
-
-    private static void tensionEvent(Player player_A, Player player_B)
-    {
-
-        //every player's current card will have an ID
-
-        //Deception.deceptionCallOut(false, true, player_A, 0, player_B);
-
-        /*
-         * possible tension event call outs;
-         *          Player A action 
-         *          Player B reacts 
-         *      
-         * 
-         *  this will come to and end until both players have come to a compromise
-         * 
-         */
-
-        
-
-
-    }   
-
-
-
-    /*
-     * one player reacts to another player's action
-     * "initiate" tension
-     * 
-     *  EX. Player A initiates a treasury yield
-     *      Player B intervenes with a tensionEvent
-     *      
-     *      this event is called after the player 
-     *      
-     *      
-     *      Player B sees on their screen:
-     * 
-     *      "Player A is attempting to treasury yield"
-     *      
-     *      Permit, Call Fallasy
-     *      false   true 
-     *      
-     *      Player B selects: Call Fallasy
-     * 
-     * 
-     * 
-
-    public void tensionInitiate(boolean player_A initiate, Player player_A, Player player_B)
-    {
-        if(player_A initiate)Interactions.tensionEvent(player_A, player_B); 
-    }
-    
-    private static void tensionEvent(Player player_A, Player player_B)
-    {
-        
-
-
-    }
-
-
-
-
-    /*
-     * the resulting action after the tension event has coome to an event.
-     * 
      * 
      * 
      * 
      */
-
-
-}
