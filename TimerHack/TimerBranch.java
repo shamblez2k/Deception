@@ -2,13 +2,11 @@
 
 public class TimerBranch{
 
-
 private static final int Total_Time= 30;
 
-    public static void main (String [] args){
-        
-
-        
+    public static void fixedTimer()
+    {
+        {
         System.out.println("You have 30 seconds to make your move!");
        Thread countdownThread= new Thread(new Runnable() {
         @Override
@@ -24,10 +22,10 @@ private static final int Total_Time= 30;
                 }
             }
             System.out.println("\n Your time has ended");
-
-
         }
        });
 countdownThread.start();
     }
+    }
+
 }

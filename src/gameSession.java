@@ -10,19 +10,38 @@ public class gameSession{
     playerCount = scanner.nextInt();
     scanner.close();
 
-    List<Player> players = new ArrayList<>();    
+    ArrayList<Player> players = new ArrayList<>();    
 
     for(int i = 1; i < playerCount; i++){
         Player player = new Player(i);
         players.add(player);
     }
 
+    //shuffle the positions of the players in the array
+    gameMethods.shuffle(players);
+
+
+
     while(true)
     {
         for(int i = 0; i < players.size(); i++)
         {
+
             Player current = players.get(i);
+            
             current.action(current); 
+
+            if(current.player_cards.isEmpty())
+            {
+                current.modifyLifeStatus(false);
+
+                gameMethods remove = new gameMethods(); 
+
+                remove.elimSwap(players, current.getID());               
+            }
+               
+
+            TimerBranch.fixedTimer();
         }
 
         if(players.size() == 1) break; 
@@ -34,3 +53,4 @@ public class gameSession{
  }
 
 }
+

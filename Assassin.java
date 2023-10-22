@@ -5,3 +5,17 @@ public class Assassin{
                 victim.player_cards.remove(choice);
             }
         }
+
+        public static void assassinationAttempt(Player aggressor, Player defender)
+        {
+            
+        }
+
+        private static void assassinationSuccess(Player defender)
+        {
+            //a player choice for which card they would like to eliminate. 
+
+        }
+
+
+    }
