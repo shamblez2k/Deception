@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 public class Player {
 
+    private static int player_count = 0; 
+
     private int player_id; 
     private String player_name; 
     
@@ -26,21 +28,10 @@ public class Player {
        
     private static int botCount = 1;
     
-    /*
-     This constructor is built around the following: 
-     
-     for(int i = 0; i < playerCount; i++)
-     {  
-        Player player = new Player(i+1); 
-        //push the player onto a list.eyer 
-     }
-     
-     Then from the list:
-     We are able to shuffle and determine a new ordering for player-turns
-     */
-
+ 
     //in game constructor 
-    public Player(int player_id)
+   /*
+     public Player(int player_id)
     {   
         if(player_id == 1) game_master = true;  
         this.player_id = player_id; 
@@ -52,8 +43,36 @@ public class Player {
         //give the player the last two cards from the DeckTemp 
         DeckTemp deck = new DeckTemp();
         deck.draw(player_cards);
-            
+    }
+    */
+    //ArrayList<Integer>approach
 
+    public Player(int player_id)
+    {
+        if(player_count == 6)
+            throw new IllegalAccessError("The player count has exceeded the maximum count.");
+
+        if(player_id == 1) game_master = true;
+        this.player_id = player_id; 
+        DeckTemp deckTemp = new DeckTemp();
+
+        deckTemp.draw(player_cards);
+
+        life_status = true; 
+        CC = 0; 
+
+        player_count++; 
+    }
+
+    public int getID()
+    {
+        return player_id;
+    }
+
+    //just in case we would like to switch the player's id
+    public void setID(int player_id)
+    {
+        this.player_id = player_id; 
     }
 
 
@@ -79,7 +98,7 @@ public class Player {
         botCount++; 
     }
 
-    public static Player getPlayerbyId(int id){
+    public Player getPlayerbyId(int id){
         return playersMap.get(id);
     }
 
@@ -157,7 +176,9 @@ public class Player {
 
     // }
 
-    public void action(Player player){
+
+
+    public void action(Player player){ //subject to change.
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please choose an action: Econ | Aid | Kill | Merc ");
         String chosenAction = scanner.next();
@@ -208,18 +229,14 @@ public class Player {
                 break;
 
                 case "Cap":
-
-
-
             }
-
-
-
         }
-
-        
-
     }
+
+
+
+
+
 
 
 }

@@ -29,7 +29,6 @@ public class Deception {
     }
 
   
-
     //this validates if a card is in a player's deck
     public static boolean validation(ArrayList<Integer>playerDeck, int merc_id)
     {   
